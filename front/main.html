@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Daily base</title>
+    <link rel="icon" href="source/icon.png">
+  </head>
+  <body>
+    <p id="title">Daily Base</p>
+    <p id="subtitle">Clash of clans</p>
+    <div class="dropdown">
+      Choose TH level:
+      <button data-th="17" class="dropdownbtn">17</button>
+      <button data-th="16" class="dropdownbtn">16</button>
+      <button data-th="15" class="dropdownbtn">15</button>
+      <button data-th="14" class="dropdownbtn">14</button>
+      <button data-th="13" class="dropdownbtn">13</button>
+      <button data-th="12" class="dropdownbtn">12</button>
+      <button data-th="11" class="dropdownbtn">11</button>
+      <button data-th="10" class="dropdownbtn">10</button>
+      <button data-th="9" class="dropdownbtn">9</button>
+      <button data-th="8" class="dropdownbtn">8</button>
+      <button data-th="7" class="dropdownbtn">7</button>
+      <button data-th="6" class="dropdownbtn">6</button>
+      <button data-th="5" class="dropdownbtn">5</button>
+      <button data-th="4" class="dropdownbtn">4</button>
+    </div>
+    <div class="dropdown">
+      Choose BH level:
+      <button data-bh="10" class="dropdownbtn">10</button>
+      <button data-bh="9" class="dropdownbtn">9</button>
+      <button data-bh="8" class="dropdownbtn">8</button>
+      <button data-bh="7" class="dropdownbtn">7</button>
+      <button data-bh="6" class="dropdownbtn">6</button>
+      <button data-bh="5" class="dropdownbtn">5</button>
+      <button data-bh="4" class="dropdownbtn">4</button>
+    </div>
+    <div class="basecontent">
+      <div>
+        <img id="imgTh" class="baseimage" src="source/1653562524_new_preview_hog rider.jpg">
+       <a id="linkTh" href=""><button class = "baselink">LINK</button></a>
+      </div>
+      <div>
+        <img id="imgBh" class="baseimage" src="source/static-assets-upload9087069131047206398.webp">
+        <a id="linkBh" href=""><button class = "baselink">LINK</button></a>
+      </div>
+    </div>
+    <!-- <script defer>
+      ;(async function () {
+        const response = await fetch("http://127.0.0.1:5001/");
+        const data = await response.json();
+        console.log(data);
+      })();
+    </script> -->
+  <script defer>
+    const buttons = document.querySelectorAll("button.dropdownbtn");
+    async function getHall(data, isTH) {
+      let baseUrl = `http://127.0.0.1:5001/`;
+      if (isTH) {
+        baseUrl += `th?lvl=${data}`
+      } else {
+        baseUrl += `bh?lvl=${data}`
+      }
+      const response = await fetch(baseUrl, {
+        method: "GET"
+      })
+      const pohui = await response.json()
+      const [image, link] = pohui.split(',')
+      if (isTH) {
+        document.getElementById("imgTh").src = image
+        document.getElementById("linkTh").href = link
+      } else {
+        document.getElementById("imgBh").src = image
+        document.getElementById("linkBh").href = link
+      }
+    }
+    buttons.forEach((button) => button.addEventListener("click", function() {
+      const [data, isTH] = button.getAttribute("data-th") !== null ? [button.getAttribute("data-th"), true] : [button.getAttribute("data-bh"), false]
+      ;(async function() {
+        await getHall(data, isTH);
+      })()
+    }))
+  </script>
+  </body>
+</html>

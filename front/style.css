@@ -1,0 +1,78 @@
+body {
+  background-image: url(source/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p#title{
+  font-size: 35pt;
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p#subtitle {
+  font-style: italic;
+  font-size: 30pt;
+  padding-top: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.dropdown {
+  margin: auto;
+  font-size: 16pt;
+  display: flex;
+  justify-content: end;
+  text-align: center;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.dropdownbtn {
+  font-size: 16pt;
+  align-self: center;
+  display: none;
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 0;
+  background-color: antiquewhite; 
+  position: absolute;
+}
+
+.dropdown:hover .dropdownbtn { 
+  display: block;
+  position: relative;
+}
+
+.basecontent {
+  margin: auto;
+  height: fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+}
+
+.baseimage {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 600px;
+  width: 600px;
+}
+
+.baselink {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  height: 50px;
+  width: 600px;
+}
